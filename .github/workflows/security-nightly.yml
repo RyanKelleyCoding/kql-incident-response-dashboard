@@ -62,4 +62,4 @@ jobs:
             -v "$PWD:/repo" \
             -w /repo \
             ghcr.io/google/osv-scanner:latest \
-            scan source -r /repo
+            scan source --allow-no-lockfiles -r /repo

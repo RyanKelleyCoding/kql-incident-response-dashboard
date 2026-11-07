@@ -66,6 +66,11 @@ How to tune false positives: Use explicit skip annotations with reasons for inte
 
 What it does: Scans manifests and lockfiles recursively for known vulnerable dependencies.
 
+The scan uses `--allow-no-lockfiles` because this workbook repository has no
+package manifests or lockfiles. OSV reports that no package sources were found
+without failing the workflow. Any dependencies added later are still scanned;
+vulnerability findings and scanner errors still fail the job.
+
 Why it works: It uses the open OSV advisory ecosystem and is a strong free dependency-risk baseline.
 
 How to tune false positives: Ignore advisories only when there is no fix or the affected component is unreachable, and document that decision.
